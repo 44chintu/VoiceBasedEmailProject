@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body class="formode">
+    <section class="main">
+                    <form action="" id="myform">
+                        <input type="text" name="uname" id="uname" placeholder="User Name">
+                        <input type="email" name="mail" id="mail" placeholder="Email">
+                        <input type="number" name="phone" id="phone" placeholder="Contact Number">
+                        <textarea name="mymessage" id="mymessage" placeholder="Message"></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+    </section>
+     <!--javascript code for voice input-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
+        if (annyang) {
+          var commands = {
+
+            'write username *tag' : function(variable){
+                console.log("Username : "+variable);
+                var username = document.getElementById("uname");
+                username.value = variable;
+            },
+            'write email *tag' : function(variable){
+                console.log("email : "+variable);
+                var textmail = document.getElementById("mail");
+                textmail.value = variable;
+            },
+            'write phone number *tag' : function(variable){
+                console.log("Phone number : "+variable);
+                var phoneNumber = document.getElementById("phone");
+                phoneNumber.value = variable;
+            },
+            'write message *tag' : function(variable){
+                console.log("Message : "+variable);
+                var message = document.getElementById("mymessage");
+                message.value = variable;
+            },
+            'send mail' : function(){
+                location.href="sent.html";
+            },
+            'homepage' : function(){
+                location.href = "index.html";
+            }
+          };
+        
+          annyang.addCommands(commands);
+        
+          annyang.start();
+        }
+        </script>
+    
+    <!--python code for mail-->
+        <!-- <py-script src = "mail.py">
+
+        </py-script> -->
+
+
+
+
+
+</body> 
+</html>

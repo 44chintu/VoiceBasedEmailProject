@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Speak:Compose a mail</h1>
+    <h1>Check inbox</h1>
+    <h1>Check spam</h1>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
+        if(annyang){
+            var commands = {
+                'compose a mail' : function(){
+                    location.href="compose.html";
+                },
+                'check inbox' : function(){
+                    location.href = 'inbox.html';
+                },
+                'check spam' : function(){
+                    location.href = 'spam.html';
+                }
+            };
+            annyang.addCommands(commands);
+            annyang.start();
+        }
+    </script>
+</body>
+</html>
